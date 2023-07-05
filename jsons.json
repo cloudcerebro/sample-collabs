@@ -1,0 +1,85 @@
+{{
+  "videoInput": {{
+    "backgroundColor": "#000000",
+    "durationInFrames": 300,
+    "fps": 30,
+    "width": 1920,
+    "height": 1080,
+    "sequences": [
+      {{
+        "sequenceNo": 1,
+        "from": 0,
+        "durationInFrames": 300,
+        "transition": {{
+          "type": "in"
+        }},
+        "structure": {{
+          "backgroundColor": "#000000",
+          "useTemplate": false,
+          "template": null,
+          "components": []
+        }}
+      }}
+    ]
+  }}
+}}
+
+
+{{
+    "videoInput": {{
+      "backgroundColor": "#000000",
+      "durationInFrames": 900,
+      "fps": 30,
+      "width": 1080,
+      "height": 1920,
+      "sequences": [
+        {{
+          "sequenceNo": 1,
+          "from": 0,
+          "durationInFrames": 300,
+          "transition": {{
+            "type": "in"
+          }},
+          "structure": {{
+            "backgroundColor": "#000000",
+            "useTemplate": false,
+            "template": null,
+            "generatedText": "Cat is a friendly animal",
+            "components": []
+          }}
+        }},
+        {{
+          "sequenceNo": 2,
+          "from": 300,
+          "durationInFrames": 300,
+          "transition": {{
+            "type": "in"
+          }},
+          "structure": {{
+            "backgroundColor": "#000000",
+            "useTemplate": false,
+            "template": null,
+            "generatedText": "Cat can be a pet animal",
+            "components": []
+          }}
+        }},
+        {{
+          "sequenceNo": 3,
+          "from": 600,
+          "durationInFrames": 300,
+          "transition": {{
+            "type": "in"
+          }},
+          "structure": {{
+            "backgroundColor": "#000000",
+            "useTemplate": false,
+            "template": null,
+            "generatedText": "Cat has a soft body",
+            "components": []
+          }}
+        }}
+      ]
+    }}
+  }}
+
+  {'videoInput': {'backgroundColor': '#000000', 'durationInFrames': 900, 'fps': 30, 'width': 1080, 'height': 1920, 'sequences': [{'sequenceNo': 1, 'from': 0, 'durationInFrames': 180, 'transition': {'type': 'in'}, 'structure': {'backgroundColor': '#000000', 'useTemplate': False, 'template': None, 'generatedText': 'Fact 1: Cats sleep for 13 to 14 hours a day.', 'components': []}}, {'sequenceNo': 2, 'from': 180, 'durationInFrames': 180, 'transition': {'type': 'in'}, 'structure': {'backgroundColor': '#000000', 'useTemplate': False, 'template': None, 'generatedText': 'Fact 2: Cats use their whiskers to determine if they can fit through a space.', 'components': []}}, {'sequenceNo': 3, 'from': 360, 'durationInFrames': 180, 'transition': {'type': 'in'}, 'structure': {'backgroundColor': '#000000', 'useTemplate': False, 'template': None, 'generatedText': 'Fact 3: A cat’s brain is 90% similar to a human’s brain.', 'components': []}}, {'sequenceNo': 4, 'from': 540, 'durationInFrames': 180, 'transition': {'type': 'in'}, 'structure': {'backgroundColor': '#000000', 'useTemplate': False, 'template': None, 'generatedText': 'Fact 4: Cats and humans have nearly identical sections of the brain that control emotions.', 'components': []}}, {'sequenceNo': 5, 'from': 720, 'durationInFrames': 180, 'transition': {'type': 'in'}, 'structure': {'backgroundColor': '#000000', 'useTemplate': False, 'template': None, 'generatedText': 'Fact 5: A cat’s nose is as unique as a human’s fingerprint.', 'components': []}}]}}
