@@ -8,15 +8,18 @@ from langchain.llms import OpenAIChat
 from langchain import PromptTemplate
 from langchain.llms import PromptLayerOpenAIChat
 from langchain.chains import create_tagging_chain, create_tagging_chain_pydantic
+from langchain.chat_models import ChatOpenAI
 
 sys.path.insert(0, str(Path(__file__).parent))
 load_dotenv()
 
 print("Executing promptTemplate.py")
 
-llm = OpenAIChat(model_name="gpt-4") # type: ignore
+# llm = ChatOpenAI(model_name="gpt-4") # type: ignore
+llm = ChatOpenAI() # type: ignore
 
-template = """
+
+sequence_template = """
 You are a powerful AI Assistant which is well trained on many videos.
 
 The input may contain one of the following: 
@@ -129,21 +132,32 @@ Example output:
   }}
 """ # type: ignore
 
-prompt_template = PromptTemplate(input_variables=["user_query", "video_input"], template=template)
+seq_prompt_template = PromptTemplate(input_variables=["user_query", "video_input"], template=sequence_template)
 
 # formatted_prompt = prompt_template.format(user_input="Generate a video of duration 900 frames in 30 fps with width: 1080 and height: 1920. The video is about five facts about cats.", video_input="")
 
-llm_chain = LLMChain(prompt=prompt_template, llm=llm)
-output = llm_chain.run(video_input='', user_query="Generate a video of duration 900 frames in 30 fps with width: 1080 and height: 1920. The video is about five facts about cats.")
-print(f"output: {output}")
+seq_llm_chain = LLMChain(prompt=seq_prompt_template, llm=llm)
+# Export the chain for using it in another 
+""" seq_output = seq_llm_chain.run(video_input='', user_query="Generate a video of duration 900 frames in 30 fps with width: 1080 and height: 1920. The video is about five facts about cats.")
 # Convert output string to JSON
-output_json = json.loads(output)
-print(f"output_json: {output_json['videoInput']}")
+seq_output_json = json.loads(seq_output)
 
 # Convert JSON to dict
-output_dict = dict(output_json)
-print(f"output_dict: {output_dict}")
-print(f"output_dict: {output_dict['videoInput']}")
+seq_output_dict = dict(seq_output_json)
+print(f"output_dict: {seq_output_dict['videoInput']}") """
+
+def get_seq_as_dict(video_input, user_query) -> dict:
+    print(f"Getting sequence as dict for video_input and user_query")
+    seq_output = seq_llm_chain.run(video_input=video_input, user_query=user_query)
+    # Trim the output to get only the JSON
+    seq_output = seq_output[seq_output.find("{"):]
+    print(f"seq_output: {seq_output}")
+
+    seq_output_json = json.loads(seq_output)
+    seq_output_dict = dict(seq_output_json)
+    return seq_output_dict
+
+
 
 
 
