@@ -1,7 +1,14 @@
 import json
+import eventlet
+
+eventlet.monkey_patch()
 import sys
 from pathlib import Path
 import os
+import boto3
+from threading import Thread
+from flask import Flask, request, jsonify
+from flask_socketio import SocketIO, emit
 from dotenv import load_dotenv
 from langchain import LLMChain
 from langchain.llms import OpenAIChat
@@ -18,11 +25,11 @@ print("Executing promptTemplate.py")
 llm = ChatOpenAI(model_name="gpt-4") # type: ignore
 # llm = ChatOpenAI() # type: ignore
 
-from langchain.memory.chat_message_histories import DynamoDBChatMessageHistory
+""" from langchain.memory.chat_message_histories import DynamoDBChatMessageHistory
 
 history = DynamoDBChatMessageHistory(table_name="SessionTable", session_id="0")
 
-history.add_user_message("hi!")
+history.add_user_message("hi!") """
 
 
 sequence_template = """
